@@ -17,6 +17,12 @@ header {
     align-items: center;
 }
 
+header .logo {
+    width: 150px;
+    max-width: 80%; /* Ensures it scales on smaller screens */
+    height: auto;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -125,6 +131,10 @@ table.schedule th, table.schedule td {
         flex-direction: column;
         align-items: center;
         padding: 20px;
+    }
+
+    header .logo {
+        width: 120px;
     }
 
     nav ul {

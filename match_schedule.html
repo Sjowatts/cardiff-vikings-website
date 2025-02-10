@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - Cardiff Vikings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Cardiff Vikings Logo" class="logo">
+        <h1>Cardiff Vikings</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="schedule.html">Training Schedule</a></li>
+                <li><a href="match_schedule.html">Match Schedule</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="news.html">News</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Schedule</h2>
+        <h3>September 2024 - April 2025</h3>
+        <table class="schedule">
+            <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Date</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Week rows will be generated here -->
+                <!-- Example row structure:
+                <tr>
+                    <td>Week 1</td>
+                    <td>02/09/2024</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Game - 11:00-2:00</td>
+                </tr>
+                -->
+                <!-- Generated rows will be inserted here -->
+                <script>
+                    const startDate = new Date('2024-09-02');
+                    const endDate = new Date('2025-04-25');
+                    let currentDate = startDate;
+                    let weekNumber = 1;
+
+                    while (currentDate <= endDate) {
+                        const weekRow = document.createElement('tr');
+                        const weekCell = document.createElement('td');
+                        weekCell.textContent = `Week ${weekNumber}`;
+                        weekRow.appendChild(weekCell);
+
+                        const dateCell = document.createElement('td');
+                        dateCell.textContent = currentDate.toLocaleDateString();
+                        weekRow.appendChild(dateCell);
+
+                        const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                        daysOfWeek.forEach((day, index) => {
+                            const dayCell = document.createElement('td');
+                            if (day === 'Tuesday') {
+                                dayCell.textContent = '';
+                            } else if (day === 'Wednesday') {
+                                dayCell.textContent = '';
+                            } else if (day === 'Sunday') {
+                                dayCell.textContent = '11:00 - 14:00 Match';
+                            }
+                            weekRow.appendChild(dayCell);
+                        });
+
+                        document.querySelector('.schedule tbody').appendChild(weekRow);
+
+                        // Move to the next week
+                        currentDate.setDate(currentDate.getDate() + 7);
+                        weekNumber++;
+                    }
+                </script>
+            </tbody>
+        </table>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
